@@ -1,0 +1,481 @@
+.hero-decor {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+
+.hero-decor.sky{
+    background: linear-gradient(to bottom, #00BFFF, #87CEEB, #B0E0E6);
+}
+
+/* Основные стили облаков */
+.cloud-block {
+    position: relative; 
+    width: 100%;
+    height: 400px;  
+    z-index: 99;
+}
+.cloud {
+    position: absolute; 
+    background: radial-gradient(circle, #ffffff, #b1b1b1);
+    border-radius: 50%; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+    z-index: 10; 
+    animation: moveClouds linear infinite; 
+}
+
+
+.cloud::before,
+.cloud::after {
+    animation: moveCloudsParts 3s ease-in-out infinite; 
+}
+
+/* Облака */
+.cloud-1 {
+    width: 50px;
+    height: 50px;
+    animation-duration: 55s;
+}
+.cloud-1::before,
+.cloud-1::after {
+    content: '';
+    position: absolute;
+    background: radial-gradient(circle, #ffffff, #b1b1b1);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.cloud-1::before {
+    width: 70px;
+    height: 70px;
+    top: -20px;
+    left: 10px;
+}
+.cloud-1::after {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 40px;
+}
+
+.cloud-2 {
+    width: 70px;
+    height: 70px;
+    animation-duration: 60s;
+}
+.cloud-2::before,
+.cloud-2::after {
+    content: '';
+    position: absolute;
+    background: radial-gradient(circle, #ffffff, #b1b1b185);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.cloud-2::before {
+    width: 90px;
+    height: 90px;
+    top: -30px;
+    left: 10px;
+}
+.cloud-2::after {
+    width: 60px;
+    height: 60px;
+    top: 10px;
+    left: 40px;
+}
+
+.cloud-3 {
+    width: 90px;
+    height: 90px;
+    animation-duration: 65s; 
+}
+.cloud-3::before,
+.cloud-3::after {
+    content: '';
+    position: absolute;
+    background: radial-gradient(circle, #ffffff, #b1b1b185);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.cloud-3::before {
+    width: 110px;
+    height: 110px;
+    top: -14px;
+    left: 30px;
+}
+.cloud-3::after {
+    width: 80px;
+    height: 80px;
+    top: -2px;
+    left: 86px;
+}
+/* Анимация движения облаков */
+@keyframes moveClouds {
+    0% {
+        transform: translate(-200px, var(--startY)); 
+    }
+    100% {
+        transform: translate(100vw, var(--startY)); 
+    }
+}
+/* Анимация колебаний частиц облаков */
+@keyframes moveCloudsParts {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px); 
+    }
+}
+
+
+/* cloud styles */
+.hero-landscap {
+    position: relative;
+    width: 100%;
+    height: 1515px;
+}
+
+/* Основной стиль для солнца */
+.sun {
+    position: absolute;
+    left: 55%; 
+    top: -170px;
+    width: 150px;
+    height: 150px;
+    transform: translateX(-50%); 
+    background: radial-gradient(circle, #FFD700 40%, #FFEC8B 60%);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 30px 10px rgba(255, 215, 0, 0.6),  
+        0 0 60px 30px rgba(255, 215, 0, 0.4),  
+        0 0 100px 50px rgba(255, 215, 0, 0.2); 
+    z-index: 10;
+    transition: opacity 0.5s ease;
+}
+.sun::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0) 40%, rgba(255, 255, 0, 0.2) 60%, rgba(255, 255, 0, 0.1) 80%);
+    z-index: -1;
+}
+
+/* Основной стиль для луны */
+.moon {
+    position: absolute;
+    left: -100px;
+    top: 50px;
+    width: 120px;
+    height: 120px;
+    transform: translateX(-50%); 
+    background: radial-gradient(circle, #e6e6e6 40%, #d9d9d9 60%);
+    border-radius: 50%;
+    box-shadow: 
+    0 0 20px 8px rgba(255, 255, 255, 0.5),
+    0 0 40px 25px rgba(200, 200, 255, 0.3),
+    0 0 80px 50px rgba(150, 150, 255, 0.2);
+    z-index: 10;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.moon span {
+    position: absolute;
+    background: radial-gradient(circle, #d1d1d1 30%, #bdbdbd 70%);
+    border-radius: 50%;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2); 
+}
+.moon span:nth-child(1) {
+    width: 12px;
+    height: 12px;
+    top: 30px;
+    left: 60px;
+}
+.moon span:nth-child(2) {
+    width: 10px;
+    height: 10px;
+    top: 70px;
+    left: 40px;
+}
+.moon span:nth-child(3) {
+    width: 8px;
+    height: 8px;
+    top: 50px;
+    left: 80px;
+}
+.moon span:nth-child(4) {
+    width: 6px;
+    height: 6px;
+    top: 40px;
+    left: 30px;
+}
+.moon span:nth-child(5) {
+    width: 14px;
+    height: 14px;
+    top: 14px;
+    left: 26px;
+}
+.moon span:nth-child(6) {
+    width: 9px;
+    height: 9px;
+    top: 60px;
+    left: 65px;
+}
+.moon span:nth-child(7) {
+    width: 7px;
+    height: 7px;
+    top: 45px;
+    left: 90px;
+}
+.moon span:nth-child(8) {
+    width: 11px;
+    height: 11px;
+    top: 90px;
+    left: 30px;
+}
+.moon span:nth-child(9) {
+    width: 5px;
+    height: 5px;
+    top: 20px;
+    left: 50px;
+}
+.moon span:nth-child(10) {
+    width: 13px;
+    height: 13px;
+    top: 100px;
+    left: 70px;
+}
+
+
+.mountain-back, .mountain-mid, .mountain-front {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 600px;
+}
+.mountain-back {
+    top: 0;
+    background: linear-gradient(to top, #d0e1f9, #a9c4e2);
+    clip-path: polygon(
+        0% 100%,  
+        15% 32%, 
+        20% 33%, 
+        30% 20%, 
+        40% 40%, 
+        50% 0%, 
+        60% 39%, 
+        70% 25%, 
+        80% 45%, 
+        86% 40%, 
+        100% 100%
+    );
+    z-index: 1;
+}
+.mountain-mid {
+    top: 120px;
+    background: linear-gradient(to top, #a9c4e2, #7b9fb1);
+    clip-path: polygon(
+        0% 100%,  
+        0% 34%, 
+        20% 49%, 
+        32% 29%, 
+        41% 50%, 
+        52% 26%, 
+        62% 49%, 
+        71% 59%, 
+        80% 55%, 
+        96% 30%, 
+        115% 100%
+    );
+    z-index: 2;
+}
+.mountain-front {
+    top: 220px;
+    background: linear-gradient(to top, #6b8b9a, #4d6473);
+    clip-path: polygon(
+        -5% 80%,  
+        8% 38%, 
+        22% 55%, 
+        34% 35%, 
+        42% 50%, 
+        55% 38%, 
+        60% 39%, 
+        71% 52%, 
+        86% 47%, 
+        100% 18%, 
+        115% 100%
+    );
+    z-index: 3;
+}
+
+/* Общее для всех псевдоэлементов */
+.mountain-back::before, .mountain-mid::before, .mountain-front::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: inherit;
+    background: rgba(0, 0, 0, 0.3);
+    filter: blur(20px);
+}
+
+/* Индивидуальные стили для ::before */
+.mountain-back::before {
+    top: 5px;
+    left: 5px;
+    background: rgba(0, 0, 0, 0.082);
+    z-index: 2;
+}
+.mountain-mid::before {
+    top: 15px;
+    left: 6px;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 4;
+}
+.mountain-front::before {
+    top: 20px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    filter: blur(15px);
+    z-index: 5;
+}
+
+/* Общее для всех псевдоэлементов ::after */
+.mountain-back::after, .mountain-mid::after, .mountain-front::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: inherit;
+}
+
+/* Индивидуальные стили для ::after */
+.mountain-back::after {
+    background: linear-gradient(to top, transparent 60%, #ffffff 100%);
+    z-index: 2;
+}
+.mountain-mid::after {
+    background: linear-gradient(to top, #4d6473, #a9c4e2, transparent);
+    z-index: 3;
+}
+.mountain-front::after {
+    background: linear-gradient(to top, #3b7250 30%, transparent 70%);
+    z-index: 4;
+}
+
+/* fir-trees styles */
+.fir-trees {
+    top: 420px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    z-index: 4;
+}
+.body-fir-tree {
+    width: 20px;
+    position: absolute;
+}
+
+
+
+
+/* meadows styles */
+.meadows-back, .meadows-mid {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 600px;
+}
+.meadows-back {
+    top: 431px;
+    background-color: #A8D5BA;
+    clip-path: polygon(
+        0% 100%,  
+        0% 37%, 
+        20% 28%, 
+        30% 24%, 
+        40% 24%, 
+        54% 26%, 
+        66% 34%, 
+        82% 43%, 
+        93% 42%, 
+        100% 35%, 
+        100% 100%
+    );
+    z-index: 5;
+}
+.meadows-mid {
+    top: 600px;
+    background: #73B98C;
+    clip-path: polygon(
+        0% 100%,  
+        0% 37%, 
+        20% 32%, 
+        30% 32%, 
+        40% 30%, 
+        54% 27%, 
+        66% 25%, 
+        82% 30%, 
+        93% 35%, 
+        100% 40%, 
+        100% 100%
+    );
+    z-index: 6;
+}
+/* Общее для всех псевдоэлементов */
+.meadows-back::before, .meadows-mid::before, .meadows-front::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: inherit;
+    filter: blur(20px);
+}
+/* Индивидуальные стили для ::before */
+.meadows-back::before {
+    top: 25px;
+    left: 30px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+.meadows-mid::before {
+    top: 30px;
+    left: 35px;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 3;
+}
+
+/* ground styles */
+.ground {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 600px;
+}
+
+.ground-front {
+    bottom: -150px;
+    background: linear-gradient(180deg, #73B98C 0%, #7A714C 50%, #423D29 75%, #423D29 100%);
+    clip-path: polygon(
+        0% 100%,  
+        0% 37%, 
+        20% 35%, 
+        30% 37%, 
+        40% 38%, 
+        54% 38%, 
+        66% 40%, 
+        82% 44%, 
+        93% 44%, 
+        100% 43%, 
+        100% 100%
+    );
+    z-index: 6;
+}

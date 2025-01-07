@@ -1,0 +1,127 @@
+.body-fir-tree {
+    display: flex;
+    aspect-ratio: 3 / 3;
+    flex-direction: column;
+    align-items: center;
+}
+.forest.snowy .crown{
+    background-color: #6b8b9a;
+}
+.crown {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: -40%;
+}
+.crown::before,
+.crown::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    clip-path: inherit;
+}
+.crown::before {
+    top: 8%;
+    right: 2%;
+}
+.crown::after {
+    top: 25%;
+    right: 9%;
+    transform: rotate(133deg);
+}
+.crown:nth-of-type(1) {
+    z-index: 5;
+    clip-path: polygon(
+        4% 94%,    
+        0% 91%,    
+        11% 87%,   
+        29% 68%,   
+        40% 47%,   
+        54% 0%,   
+        66% 47%,   
+        82% 70%,   
+        92% 84%,   
+        99% 100%,  
+        68% 86%,  
+        37% 85%, 
+        15% 93%    
+    );
+}
+.crown:nth-of-type(2) {
+    z-index: 4;
+    clip-path: polygon(
+        10% 100%,    
+        0% 100%,    
+        13% 74%,   
+        29% 55%,   
+        38% 28%,   
+        54% 0%,   
+        73% 43%,   
+        82% 67%,   
+        92% 84%,   
+        100% 97%,  
+        67% 83%,  
+        24% 89%, 
+        0% 100%    
+    );
+}
+.crown:nth-of-type(3) {
+    z-index: 3;
+    clip-path: polygon(
+        10% 100%,    
+        0% 100%,    
+        13% 73%,   
+        29% 55%,   
+        34% 40%,   
+        54% 0%,   
+        67% 31%,   
+        82% 58%,   
+        92% 74%,   
+        100% 100%,  
+        67% 83%,  
+        24% 89%, 
+        0% 100%    
+    );
+}
+.crown:nth-of-type(4) {
+    z-index: 2;
+    clip-path: polygon(
+        0% 95%,    
+        10% 76%,    
+        20% 64%,   
+        31% 51%,   
+        39% 15%,   
+        53% 0%,   
+        68% 26%,   
+        82% 72%,   
+        92% 81%,   
+        100% 100%,  
+        67% 86%,  
+        49% 80%, 
+        24% 92%    
+    );
+}
+.trunk {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    background-color: chocolate;
+    width: 10%;
+    height: 50%;
+}
+.trunk::before,
+.trunk::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+.trunk::before {
+    right: 25%;
+}
+.trunk::after {
+    right: 70%;
+}

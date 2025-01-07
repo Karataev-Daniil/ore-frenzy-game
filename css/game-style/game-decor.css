@@ -1,0 +1,52 @@
+.game-decor {
+    background: linear-gradient(180deg, #423d29 0%, #635c40 10%, #423D29 25%, #574e2d 45%, #423D29 70%, #24200f 80%, #423D29  100%);
+}
+
+/* секции игры */
+.game-board {
+    display: grid;
+    grid-template-areas: 
+        "sidebar-left top-bar top-bar sidebar-right"
+        "sidebar-left main-content main-content sidebar-right"
+        "sidebar-left main-content main-content sidebar-right"
+        "sidebar-left main-content main-content sidebar-right";
+    grid-template-rows: 150px 450px 450px 450px;
+    grid-template-columns: 10% 34% 34% 19%;
+    grid-gap: 1%;
+}
+.section-board {
+    border: 3px solid #837951;
+}
+.sidebar-left {
+    grid-area: sidebar-left;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fill, minmax(150px, auto)); 
+}
+.top-bar {
+    grid-area: top-bar;
+}
+.sidebar-right {
+    grid-area: sidebar-right;
+}
+
+
+/* стили пунктов main-content */
+.main-content {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    gap: 40px 20px;
+    grid-area: main-content;
+}
+.mining-fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fill, minmax(150px, auto)); 
+    gap: 40px;
+}
+.mining-field {
+    display: grid;
+    grid-template-columns: 10% 60% 30%;
+    border: 2px solid #837951;
+}
