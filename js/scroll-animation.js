@@ -1,14 +1,14 @@
-// if ('scrollRestoration' in history) {
-//     history.scrollRestoration = 'manual'; 
-// }
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual'; 
+}
 
-// window.addEventListener('load', function () {
-//     const heroDecor = document.querySelector('.hero-decor');
+window.addEventListener('load', function () {
+    const heroDecor = document.querySelector('.hero-decor');
     
-//     if (!heroDecor) return; 
+    if (!heroDecor) return; 
     
-//     window.scrollTo(0, 0);
-// });
+    window.scrollTo(0, 0);
+});
 
 window.addEventListener('scroll', function () {
     const heroDecor = document.querySelector('.hero-decor');
@@ -22,7 +22,6 @@ window.addEventListener('scroll', function () {
         scrollPosition = maxScroll;
     }
 
-    // Настройка скорости от прокрутки слоёв
     let celestialbodiesSpeed = 0.3;
     let mountainBackSpeed = 1.0;
     let mountainMidSpeed = 0.9;
@@ -32,7 +31,6 @@ window.addEventListener('scroll', function () {
     let meadowsMidSpeed = 0.6;
     let groundFrontSpeed = -0.15;
 
-    // Прокрутка слоёв
     document.querySelector('.celestial-bodies').style.transform = 'translateY(' + scrollPosition * celestialbodiesSpeed + 'px)';
     document.querySelector('.mountain-back').style.transform = 'translateY(' + scrollPosition * mountainBackSpeed + 'px)';
     document.querySelector('.mountain-mid').style.transform = 'translateY(' + scrollPosition * mountainMidSpeed + 'px)';
@@ -42,7 +40,6 @@ window.addEventListener('scroll', function () {
     document.querySelector('.meadows-mid').style.transform = 'translateY(' + scrollPosition * meadowsMidSpeed + 'px)';
     document.querySelector('.ground-front').style.transform = 'translateY(' + scrollPosition * groundFrontSpeed + 'px)';
 
-    // Солнце и луна
     const sun = document.querySelector('.sun');
     const moon = document.querySelector('.moon');
 

@@ -1,55 +1,18 @@
-<?php
-/*
-Plugin Name: Ore Frenzy
-Description: A mining clicker game where players extract valuable resources, upgrade their mining speed, and boost their income to build a powerful mining empire.
-Version: 0.3
-Author: Daniil Karataev
-*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrFr Game</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/game-style/hero-decor.css">
+    <link rel="stylesheet" href="css/game-style/game-decor.css">
+    <link rel="stylesheet" href="css/game-style/fir-tree.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-function ore_frenzy_game_enqueue_scripts() {
-    if (is_page_template('template/ore-frenzy-game.php')) {
-        // tikhnic scripts
-        wp_enqueue_script( 'ore_frenzy-script',                plugins_url('/script.js', __FILE__), array(), null, true);
-    }
-}
-add_action('wp_enqueue_scripts', 'ore_frenzy_game_enqueue_styles');
-
-function ore_frenzy_game_animation_enqueue_scripts() {
-    if (is_page_template('template/ore-frenzy-game.php')) {
-        // game scripts
-        wp_enqueue_script( 'ore_frenzy_scroll_animation',      plugins_url('/js/scroll-animation.js', __FILE__), array(), get_file_version('/js/scroll-animation.js'), null, true);
-
-        // game scripts
-        wp_enqueue_script( 'ore_frenzy_cloud_animation',       plugins_url('/js/cloud-animation.js', __FILE__), array(), get_file_version('/js/cloud-animation.js'), null, true);
-
-        // game fir tree logic
-        wp_enqueue_script( 'ore_frenzy_script_fir_tree_logic',  plugins_url('/js/fir-tree-logic.js', __FILE__), array(), get_file_version('/js/fir-tree-logic.js') );
-
-        // game logic
-        wp_enqueue_script( 'ore_frenzy_game_script_game_logic',  plugins_url('/js/game-logic.js', __FILE__), array(), get_file_version('/js/game-logic.js') );
-    }
-}
-add_action('wp_enqueue_scripts', 'ore_frenzy_game_animation_enqueue_scripts');
-
-function ore_frenzy_game_enqueue_styles() {
-    if (is_page_template('template/ore-frenzy-game.php')) {
-        // tikhnic styles
-        wp_enqueue_style( 'ore_frenzy_reset_style',            plugins_url('/css/reset.css', __FILE__), array(), get_file_version('/css/reset.css') );
-        wp_enqueue_style( 'ore_frenzy_fonts_style',            plugins_url('/css/fonts.css', __FILE__), array(), get_file_version('/css/fonts.css') );
-
-        wp_enqueue_style( 'ore_frenzy_style',                  plugins_url('/style.css', __FILE__), array(), get_file_version('/style.css') );
-
-        // game styles
-        wp_enqueue_style( 'ore_frenzy_game_style_hero_decor',  plugins_url('/css/game-style/hero-decor.css', __FILE__), array(), get_file_version('/css/game-style/hero-decor.css') );
-        wp_enqueue_style( 'ore_frenzy_game_style_game_decor',  plugins_url('/css/game-style/game-decor.css', __FILE__), array(), get_file_version('/css/game-style/game-decor.css') );
-        wp_enqueue_style( 'ore_frenzy_game_style_fir_tree',    plugins_url('/css/game-style/fir-tree.css', __FILE__), array(), get_file_version('/css/game-style/fir-tree.css') );
-    }
-}
-add_action('wp_enqueue_styles', 'ore_frenzy_game_enqueue_styles');
-
-function ore_frenzy_game_shortcode() {
-    ob_start(); ?>
-        
     <div id="orfr-game" class="orfr-game-body">
         <section class="hero-decor sky">
             <div class="cloud-block">
@@ -78,10 +41,10 @@ function ore_frenzy_game_shortcode() {
                 <div class="meadows meadows-back"></div>
                 <div class="meadows meadows-mid"></div>
                 <div class="ground ground-front"></div>
-                <button id="scrollButton" class="buttun-start">Start Game</button>
+                <!-- <button id="scrollButton" class="buttun-start">Start Game</button> -->
             </div>
         </section>
-        <section class="game-decor">
+        <!-- <section class="game-decor">
             <div class="game-board">
                 <div class="section-board sidebar-left">
                     <div class="notification-panel">
@@ -148,11 +111,12 @@ function ore_frenzy_game_shortcode() {
                     </div>
                 </div>
             <div>
-        </section>
+        </section> -->
     </div>
-
-    <?php return ob_get_clean();
-}
-add_shortcode('ore_frenzy_game', 'ore_frenzy_game_shortcode');
-
-?>
+    
+    <script src="js/scroll-animation.js"></script>
+    <script src="js/cloud-animation.js"></script>
+    <script src="js/fir-tree-logic.js"></script>
+    <script src="js/game-logic.js"></script>
+</body>
+</html>

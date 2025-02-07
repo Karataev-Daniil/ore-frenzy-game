@@ -1,40 +1,47 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const cloudBlock = document.querySelector('.cloud-block'); // Ищем элемент с классом .cloud-block
-    
-    if (cloudBlock) { // Проверяем, существует ли элемент
-        const delayBetweenClouds = 2000; // Задержка между появлением облаков
-        const maxClouds = 30; // Максимальное количество облаков
+    const cloudBlock = document.querySelector('.cloud-block');
 
-        function createCloud(i) {
+    if (cloudBlock) {
+        const delayBetweenClouds = 2000;
+        const maxClouds = 30;
+        const initialClouds = 25;
+
+        function createCloud(i, initial = false) {
             const cloud = document.createElement('div');
-            cloud.classList.add('cloud', `cloud-${i % 3 + 1}`); // Добавляем класс для облака
+            cloud.classList.add('cloud', `cloud-${i % 3 + 1}`);
 
-            // Установка случайной высоты для анимации
-            const randomHeight = Math.random() * 200 + 30; 
-            cloud.style.setProperty('--startY', `${randomHeight}px`); 
+            const randomHeight = Math.random() * 200 + 30;
+            cloud.style.setProperty('--startY', `${randomHeight}px`);
 
-            const randomX = Math.random() * 10 - 5; 
-            cloud.style.setProperty('--randomX', `${randomX}px`); 
+            const randomX = Math.random() * 10 - 5;
+            cloud.style.setProperty('--randomX', `${randomX}px`);
 
-            const randomDuration = Math.random() * (55 - 40) + 40; // Случайная продолжительность анимации
-            cloud.style.animationDuration = `${randomDuration}s`; 
-            cloud.style.top = `${randomHeight}px`; 
+            const randomDuration = Math.random() * (55 - 40) + 40;
+            cloud.style.animationDuration = `${randomDuration}s`;
+            cloud.style.top = `${randomHeight}px`;
 
-            cloudBlock.appendChild(cloud); // Добавляем облако в .cloud-block
+            if (initial) {
+                cloud.style.left = `${Math.random() * 100}%`;
+            }
 
-            // Удаляем облако после завершения анимации
+            cloudBlock.appendChild(cloud);
+
             cloud.addEventListener('animationend', () => {
-                cloud.remove(); 
+                cloud.remove();
             });
         }
 
         let cloudIndex = 0;
 
-        // Интервал для создания облаков
-        setInterval(() => {
-            const clouds = document.querySelectorAll('.cloud'); 
+        for (let i = 0; i < initialClouds; i++) {
+            createCloud(cloudIndex, true);
+            cloudIndex++;
+        }
 
-            if (clouds.length < maxClouds) { 
+        setInterval(() => {
+            const clouds = document.querySelectorAll('.cloud');
+
+            if (clouds.length < maxClouds) {
                 createCloud(cloudIndex);
                 cloudIndex++;
             }

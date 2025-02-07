@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Вызываем функцию для создания леса
-    createForeststandard();
+    // createForeststandard();
     // Вызываем функцию для создания леса
-    createForestsnowy();
+    // createForestsnowy();
 });
